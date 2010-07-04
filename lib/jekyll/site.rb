@@ -53,7 +53,8 @@ module Jekyll
           helpers = File.join(source, '_helpers.rb')
           require helpers if File.exist?(helpers)
           puts 'Enabled Haml'
-        rescue LoadError
+        rescue LoadError => e
+          puts e.to_s
           puts 'You must have the haml gem installed first'
         end
       end
