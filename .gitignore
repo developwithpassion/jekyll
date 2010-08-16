@@ -4,3 +4,5 @@ pkg/
 *.swp
 *~
 _site/
+.bundle
+tags
