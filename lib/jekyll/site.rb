@@ -158,7 +158,7 @@ module Jekyll
         if Post.valid?(f)
           post = Post.new(self, self.source, dir, f)
 
-          if post.published
+          if post.can_be_posted
             self.posts << post
             post.categories.each { |c| self.categories[c] << post }
             post.tags.each { |c| self.tags[c] << post }

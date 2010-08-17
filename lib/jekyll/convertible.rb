@@ -44,6 +44,7 @@ module Jekyll
       end
     end
 
+
     # Determine which formatting engine to use based on this convertible's
     # extension
     #

@@ -81,6 +81,10 @@ module Jekyll
       self.date <=> other.date
     end
 
+    def can_be_posted
+      return self.date <= Time.now && self.published
+    end
+
     # Extract information from the post filename
     #   +name+ is the String filename of the post file
     #
