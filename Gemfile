@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'activesupport','2.1.2'
 gem 'builder','2.1.2'
-gem 'bundler','0.9.26'
+gem 'bundler','>= 0.9.26'
 gem 'classifier','1.3.1'
 gem 'cucumber','0.8.3'
 gem 'diff-lcs','1.1.2'
