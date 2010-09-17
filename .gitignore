@@ -1,5 +1,4 @@
 test/dest/
-*.gem
 pkg/
 *.swp
 *~
