@@ -1,1 +1,1 @@
-rvm 1.8.7@blog_source --create
+rvm 1.8.7@repositories_github_jekyll --create
