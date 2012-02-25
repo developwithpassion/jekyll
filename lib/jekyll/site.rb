@@ -1,7 +1,7 @@
 module Jekyll
 
   class Site
-    attr_accessor :config, :layouts, :posts, :collated_posts, :categories, :tags
+    attr_accessor :config, :layouts, :posts, :collated_posts, :categories, :tags,:cdn_root
     attr_accessor :source, :dest, :lsi, :pygments, :pygments_cache, :permalink_style,
                   :sass, :post_defaults
 
@@ -42,7 +42,7 @@ module Jekyll
           self.sass = true
           puts 'Using Sass for CSS generation'
         rescue LoadError
-          puts 'You must have the haml gem installed first'
+          puts 'You must have the sass gem installed first'
         end
       end
       
@@ -275,13 +275,15 @@ module Jekyll
     #                     "tags" => [<Post>],
     #                     "topics" => [<Post>] }}
     def site_payload
-      {"site" => {
+      values = self.config
+      values = values.merge({
         "time" => Time.now,
         "posts" => self.posts.sort { |a,b| b <=> a },
         "categories" => post_attr_hash('categories'),
         "tags" => post_attr_hash('tags'),
         "topics" => post_attr_hash('topics')
-      }}
+      })
+      return {"site" => values}
     end
 
     # Filter out any files/directories that are hidden or backup files (start
